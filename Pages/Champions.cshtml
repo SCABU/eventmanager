@@ -1,0 +1,121 @@
+﻿@page
+@model eventmanager.Pages.ChampionsModel
+@{
+}
+<style>
+    .card-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+    }
+
+    .card {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+    }
+
+        .card h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .card button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #6fbce8;
+            color: white;
+            text-align: center;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .card button:hover {
+                background-color: #6f7fe8;
+            }
+</style>
+
+<div class="row">
+    <div class="col-4">
+        <div class="list-group" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action active" id="list-flyweight-list" data-bs-toggle="list" href="#list-flyweight" role="tab" aria-controls="list-flyweight">flyweight</a>
+            <a class="list-group-item list-group-item-action" id="list-bantamweight-list" data-bs-toggle="list" href="#list-bantamweight" role="tab" aria-controls="list-bantamweight">bantamweight</a>
+            <a class="list-group-item list-group-item-action" id="list-featherweight-list" data-bs-toggle="list" href="#list-featherweight" role="tab" aria-controls="list-featherweight">featherweight</a>
+            <a class="list-group-item list-group-item-action" id="list-lightweight-list" data-bs-toggle="list" href="#list-lightweight" role="tab" aria-controls="list-lightweight">lightweight</a>
+            <a class="list-group-item list-group-item-action" id="list-walterweight-list" data-bs-toggle="list" href="#list-walterweight" role="tab" aria-controls="list-walterweight">walterweight</a>
+            <a class="list-group-item list-group-item-action" id="list-middleweight-list" data-bs-toggle="list" href="#list-middleweight" role="tab" aria-controls="list-middleweight">middleweight</a>
+            <a class="list-group-item list-group-item-action" id="list-light-heavyweight-list" data-bs-toggle="list" href="#list-light-heavyweight" role="tab" aria-controls="list-light-heavyweight">light-heavyweight</a>
+            <a class="list-group-item list-group-item-action" id="list-heavyweight-list" data-bs-toggle="list" href="#list-heavyweight" role="tab" aria-controls="list-heavyweight">heavyweight</a>
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="list-flyweight" role="tabpanel" aria-labelledby="list-flyweight-list">
+                <div class="card">
+                    <h2>@Html.DisplayFor(modeloptions => Model.WeightClasses[2].competitor.name)</h2>
+                    <p>Genere: @Html.DisplayFor(modeloptions => Model.WeightClasses[2].competitor.gender)</p>
+                    <p>Categoria di peso: @Html.DisplayFor(modeloptions =>Model.WeightClasses[2].description)</p>
+                    <a asp-page="./dettaglicampione" asp-route-id="@Model.WeightClasses[2].competitor.id">Dettagli Fighter</a>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="list-bantamweight" role="tabpanel" aria-labelledby="list-bantamweight-list">
+                <div class="card">
+                    <h2>@Html.DisplayFor(modeloptions => Model.WeightClasses[0].competitor.name)</h2>
+                    <p>Genere: @Html.DisplayFor(modeloptions => Model.WeightClasses[0].competitor.gender)</p>
+                    <p>Categoria di peso: @Html.DisplayFor(modeloptions =>Model.WeightClasses[0].description)</p>
+                    <a asp-page="./dettaglicampione" asp-route-id="@Model.WeightClasses[0].competitor.id">Dettagli Fighter</a>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="list-featherweight" role="tabpanel" aria-labelledby="list-featherweight-list">
+                <div class="card">
+                    <h2>@Html.DisplayFor(modeloptions => Model.WeightClasses[1].competitor.name)</h2>
+                    <p>Genere: @Html.DisplayFor(modeloptions => Model.WeightClasses[1].competitor.gender)</p>
+                    <p>Categoria di peso: @Html.DisplayFor(modeloptions =>Model.WeightClasses[1].description)</p>
+                    <a asp-page="./dettaglicampione" asp-route-id="@Model.WeightClasses[1].competitor.id">Dettagli Fighter</a>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="list-lightweight" role="tabpanel" aria-labelledby="list-lightweight-list">...</div>
+            <div class="tab-pane fade" id="list-walterweight" role="tabpanel" aria-labelledby="list-walterweight-list">
+                <div class="card">
+                    <h2>@Html.DisplayFor(modeloptions => Model.WeightClasses[6].competitor.name)</h2>
+                    <p>Genere: @Html.DisplayFor(modeloptions => Model.WeightClasses[6].competitor.gender)</p>
+                    <p>Categoria di peso: @Html.DisplayFor(modeloptions =>Model.WeightClasses[6].description)</p>
+                    <a asp-page="./dettaglicampione" asp-route-id="@Model.WeightClasses[6].competitor.id">Dettagli Fighter</a>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="list-middleweight" role="tabpanel" aria-labelledby="list-middleweight-list">
+                <div class="card">
+                    <h2>@Html.DisplayFor(modeloptions => Model.WeightClasses[5].competitor.name)</h2>
+                    <p>Genere: @Html.DisplayFor(modeloptions => Model.WeightClasses[5].competitor.gender)</p>
+                    <p>Categoria di peso: @Html.DisplayFor(modeloptions =>Model.WeightClasses[5].description)</p>
+                    <a asp-page="./dettaglicampione" asp-route-id="@Model.WeightClasses[5].competitor.id">Dettagli Fighter</a>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="list-light-heavyweight" role="tabpanel" aria-labelledby="list-light-heavyweight-list">
+                <div class="card">
+                    <h2>@Html.DisplayFor(modeloptions => Model.WeightClasses[4].competitor.name)</h2>
+                    <p>Genere: @Html.DisplayFor(modeloptions => Model.WeightClasses[4].competitor.gender)</p>
+                    <p>Categoria di peso: @Html.DisplayFor(modeloptions =>Model.WeightClasses[4].description)</p>
+                    <a asp-page="./dettaglicampione" asp-route-id="@Model.WeightClasses[4].competitor.id">Dettagli Fighter</a>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="list-heavyweight" role="tabpanel" aria-labelledby="list-heavyweight-list">
+                <div class="card">
+                    <h2>@Html.DisplayFor(modeloptions => Model.WeightClasses[3].competitor.name)</h2>
+                    <p>Genere: @Html.DisplayFor(modeloptions => Model.WeightClasses[3].competitor.gender)</p>
+                    <p>Categoria di peso: @Html.DisplayFor(modeloptions =>Model.WeightClasses[3].description)</p>
+                    <a asp-page="./dettaglicampione" asp-route-id="@Model.WeightClasses[3].competitor.id">Dettagli Fighter</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

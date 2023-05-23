@@ -1,0 +1,50 @@
+﻿@page
+@model eventmanager.Pages.event_detailsModel
+@{
+}
+
+<div class="card full-width-card">
+    <div class="card-body">
+        <h5 class="card-title">@Html.DisplayFor(m=> Model.competitionseason[0].name)</h5>
+        <p class="card-text">
+            <table class="table table-striped-columns">
+                <thead>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="col">data inizio</th>
+                        <td scope="row">@Html.DisplayFor(p=> Model.competitionseason[0].start_date)</td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <h2>Fighters coinvolti nell'evento</h2>
+            <table class="table table-striped-columns">
+                <thead>
+                <th>Nome</th>
+                <th>Abbreviazione</th>
+                </thead>
+                <tbody>
+                    @foreach (var figh in Model.Competitors)
+                    {
+                        <tr>
+                            <td scope="row">    <a asp-page="./dettaglicampione" asp-route-id="@figh.id">@Html.DisplayFor(p=> figh.name)</a>    </td>
+                            <td scope="row">@Html.DisplayFor(p=> figh.abbreviation)</td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+        </p>
+    </div>
+</div>
+
+                <style>
+    .full-width-card {
+        width: 100%;
+        max-width: none; /* Rimuove la limitazione sulla larghezza massima */
+        margin-left: 0;
+        margin-right: 0;
+    }
+</style>

@@ -1,0 +1,59 @@
+﻿@page
+@model eventmanager.Pages.dettaglicampioneModel
+@{
+}
+
+<!--SINISTRA
+<div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+      <image src="@Model.dataimage[0].url"></image>
+    <li class="list-group-item">Nome: @Html.DisplayFor(modeloptions => Model.competitors.name)</li>
+    <li class="list-group-item">Data Di Nascita: @Html.DisplayFor(modeloptions => Model.Informazioni.birth_date)</li>
+    <li class="list-group-item">Nazionalità: @Html.DisplayFor(modeloptions => Model.Informazioni.birth_country) , @Html.DisplayFor(modeloptions => Model.Informazioni.birth_city) </li>
+  </ul>
+</div> -->
+
+
+
+<body>
+
+    <div class="row" style="border:hidden">
+        <div class="col-md-4">
+            <!-- Prima colonna -->
+            
+                    <div class="card" style="width: 18rem;">
+                        <ul class="list-group list-group-flush">
+                            <img src="@Model.dataimage[0].url" alt="Image">
+                            <li class="list-group-item">Nome: @Html.DisplayFor(modeloptions => Model.competitors.name)</li>
+                            <li class="list-group-item">Data Di Nascita: @Html.DisplayFor(modeloptions => Model.Informazioni.birth_date)</li>
+                            <li class="list-group-item">Nazionalità: @Html.DisplayFor(modeloptions => Model.Informazioni.birth_country), @Html.DisplayFor(modeloptions => Model.Informazioni.birth_city)</li>
+                        </ul>
+                    </div>
+                
+        </div>
+        <div class="col-md-5">
+            <!-- Seconda colonna -->
+            
+                    <div class="card" style="position:center">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Reach: @Html.DisplayFor(modeloptions => Model.Informazioni.reach) Cm</li>
+                            <li class="list-group-item">Altezza: @Html.DisplayFor(modeloptions => Model.Informazioni.height) Cm</li>
+                            <li class="list-group-item">Peso: @Html.DisplayFor(modeloptions => Model.Informazioni.weight) Kg</li>
+                            <li class="list-group-item">Record(W-L-D): @Html.DisplayFor(modeloptions => Model.Record.wins)-@Html.DisplayFor(modeloptions => Model.Record.losses)-@Html.DisplayFor(modeloptions => Model.Record.draws)</li>
+                            <li class="list-group-item">Nickname: @Html.DisplayFor(modeloptions => Model.Informazioni.nickname)</li>
+                        </ul>
+                    </div>
+
+            <br />
+            <br />
+            <iframe width="560" height="315"
+                    src="@Model.codicevideo"
+                    title="@Model.Video[0].title"
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+            </iframe>
+            
+        </div>
+    </div>
+
+</body>

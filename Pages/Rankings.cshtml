@@ -1,0 +1,370 @@
+﻿@page
+@model eventmanager.Pages.RankingsModel
+@{
+}
+
+<style>
+    .card-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+    }
+
+    .card {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+    }
+
+        .card h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .card button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #6fbce8;
+            color: white;
+            text-align: center;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .card button:hover {
+                background-color: #6f7fe8;
+            }
+</style>
+
+<div class="row">
+    <div class="col-4">
+        <div class="list-group" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action active" id="list-flyweight-list" data-bs-toggle="list" href="#list-flyweight" role="tab" aria-controls="list-flyweight">flyweight</a>
+            <a class="list-group-item list-group-item-action" id="list-bantamweight-list" data-bs-toggle="list" href="#list-bantamweight" role="tab" aria-controls="list-bantamweight">bantamweight</a>
+            <a class="list-group-item list-group-item-action" id="list-featherweight-list" data-bs-toggle="list" href="#list-featherweight" role="tab" aria-controls="list-featherweight">featherweight</a>
+            <a class="list-group-item list-group-item-action" id="list-lightweight-list" data-bs-toggle="list" href="#list-lightweight" role="tab" aria-controls="list-lightweight">lightweight</a>
+            <a class="list-group-item list-group-item-action" id="list-walterweight-list" data-bs-toggle="list" href="#list-walterweight" role="tab" aria-controls="list-walterweight">walterweight</a>
+            <a class="list-group-item list-group-item-action" id="list-middleweight-list" data-bs-toggle="list" href="#list-middleweight" role="tab" aria-controls="list-middleweight">middleweight</a>
+            <a class="list-group-item list-group-item-action" id="list-light-heavyweight-list" data-bs-toggle="list" href="#list-light-heavyweight" role="tab" aria-controls="list-light-heavyweight">light-heavyweight</a>
+            <a class="list-group-item list-group-item-action" id="list-heavyweight-list" data-bs-toggle="list" href="#list-heavyweight" role="tab" aria-controls="list-heavyweight">heavyweight</a>
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="list-flyweight" role="tabpanel" aria-labelledby="list-flyweight-list">
+                <div class="card">
+                    <table class="table">
+                        <thead>
+                        <th scope="col">Rank</th>
+                        <th>Nome</th>
+                        <th>-</th>
+                        </thead>
+                        @foreach (var o in Model.Rank.Where(p => p.name == "flyweight").ToList())
+                    {
+                        
+                            int a = 0;
+                            while (a < 16)
+                            {
+                                <tr>
+                                    <th scope="row">
+                                        @if (a == 0)
+                                        {
+                                            <a>champion</a>
+                                        }
+                                        else
+                                        {
+                                            @Html.DisplayFor(p=> a)
+                                            
+
+                                        }
+                                    </th>
+
+                                    <td>@Html.DisplayFor(p=> o.competitor_rankings[a].competitor.name)</td>
+                                    <td><a asp-page="./dettaglicampione" asp-route-id="@o.competitor_rankings[a].competitor.id">Dettagli Fighter</a></td>
+                                </tr>
+                                a = a + 1;
+                            }
+                            
+                        }
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="list-bantamweight" role="tabpanel" aria-labelledby="list-bantamweight-list">
+                <div class="card">
+                    <table class="table">
+                        <thead>
+                        <th scope="col">Rank</th>
+                        <th>Nome</th>
+                        <th>-</th>
+                        </thead>
+                        @foreach (var o in Model.Rank.Where(p => p.name == "bantamweight").ToList())
+                        {
+
+                            int a = 0;
+                            while (a < 16)
+                            {
+                                <tr>
+                                    <th scope="row">
+                                        @if (a == 0)
+                                        {
+                                            <a>champion</a>
+                                        }
+                                        else
+                                        {
+                                            @Html.DisplayFor(p=> a)
+                                            ;
+
+                                        }
+                                    </th>
+
+                                    <td>@Html.DisplayFor(p=> o.competitor_rankings[a].competitor.name)</td>
+                                    <td><a asp-page="./dettaglicampione" asp-route-id="@o.competitor_rankings[a].competitor.id">Dettagli Fighter</a></td>
+                                </tr>
+                                a = a + 1;
+                            }
+
+                        }
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="list-featherweight" role="tabpanel" aria-labelledby="list-featherweight-list">
+                <div class="card">
+                    <table class="table">
+                        <thead>
+                        <th scope="col">Rank</th>
+                        <th>Nome</th>
+                        <th>-</th>
+                        </thead>
+                        @foreach (var o in Model.Rank.Where(p => p.name == "featherweight").ToList())
+                        {
+
+                            int a = 0;
+                            while (a < 16)
+                            {
+                                <tr>
+                                    <th scope="row">
+                                        @if (a == 0)
+                                        {
+                                            <a>champion</a>
+                                        }
+                                        else
+                                        {
+                                            @Html.DisplayFor(p=> a)
+                                            ;
+
+                                        }
+                                    </th>
+
+                                    <td>@Html.DisplayFor(p=> o.competitor_rankings[a].competitor.name)</td>
+                                    <td><a asp-page="./dettaglicampione" asp-route-id="@o.competitor_rankings[a].competitor.id">Dettagli Fighter</a></td>
+                                </tr>
+                                a = a + 1;
+                            }
+
+                        }
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="list-lightweight" role="tabpanel" aria-labelledby="list-lightweight-list">
+                <div class="card">
+                    <table class="table">
+                        <thead>
+                        <th scope="col">Rank</th>
+                        <th>Nome</th>
+                        <th>-</th>
+                        </thead>
+                        @foreach (var o in Model.Rank.Where(p => p.name == "lightweight").ToList())
+                        {
+
+                            int a = 0;
+                            while (a < 16)
+                            {
+                                <tr>
+                                    <th scope="row">
+                                        @if (a == 0)
+                                        {
+                                            <a>champion</a>
+                                        }
+                                        else
+                                        {
+                                            @Html.DisplayFor(p=> a)
+                                            ;
+
+                                        }
+                                    </th>
+
+                                    <td>@Html.DisplayFor(p=> o.competitor_rankings[a].competitor.name)</td>
+                                    <td><a asp-page="./dettaglicampione" asp-route-id="@o.competitor_rankings[a].competitor.id">Dettagli Fighter</a></td>
+                                </tr>
+                                a = a + 1;
+                            }
+
+                        }
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="list-walterweight" role="tabpanel" aria-labelledby="list-walterweight-list">
+                <div class="card">
+                    <table class="table">
+                        <thead>
+                        <th scope="col">Rank</th>
+                        <th>Nome</th>
+                        <th>-</th>
+                        </thead>
+                        @foreach (var o in Model.Rank.Where(p => p.name == "welterweight").ToList())
+                        {
+
+                            int a = 0;
+                            while (a < 16)
+                            {
+                                <tr>
+                                    <th scope="row">
+                                        @if (a == 0)
+                                        {
+                                            <a>champion</a>
+                                        }
+                                        else
+                                        {
+                                            @Html.DisplayFor(p=> a)
+                                            ;
+
+                                        }
+                                    </th>
+
+                                    <td>@Html.DisplayFor(p=> o.competitor_rankings[a].competitor.name)</td>
+                                    <td><a asp-page="./dettaglicampione" asp-route-id="@o.competitor_rankings[a].competitor.id">Dettagli Fighter</a></td>
+                                </tr>
+                                a = a + 1;
+                            }
+
+                        }
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="list-middleweight" role="tabpanel" aria-labelledby="list-middleweight-list">
+                <div class="card">
+                    <table class="table">
+                        <thead>
+                        <th scope="col">Rank</th>
+                        <th>Nome</th>
+                        <th>-</th>
+                        </thead>
+                        @foreach (var o in Model.Rank.Where(p => p.name == "middleweight").ToList())
+                        {
+
+                            int a = 0;
+                            while (a < 16)
+                            {
+                                <tr>
+                                    <th scope="row">
+                                        @if (a == 0)
+                                        {
+                                            <a>champion</a>
+                                        }
+                                        else
+                                        {
+                                            @Html.DisplayFor(p=> a)
+                                            ;
+
+                                        }
+                                    </th>
+
+                                    <td>@Html.DisplayFor(p=> o.competitor_rankings[a].competitor.name)</td>
+                                    <td><a asp-page="./dettaglicampione" asp-route-id="@o.competitor_rankings[a].competitor.id">Dettagli Fighter</a></td>
+                                </tr>
+                                a = a + 1;
+                            }
+
+                        }
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="list-light-heavyweight" role="tabpanel" aria-labelledby="list-light-heavyweight-list">
+                <div class="card">
+                    <table class="table">
+                        <thead>
+                        <th scope="col">Rank</th>
+                        <th>Nome</th>
+                        <th>-</th>
+                        </thead>
+                        @foreach (var o in Model.Rank.Where(p => p.name == "light_heavyweight").ToList())
+                        {
+
+                            int a = 0;
+                            while (a < 16)
+                            {
+                                <tr>
+                                    <th scope="row">
+                                        @if (a == 0)
+                                        {
+                                            <a>champion</a>
+                                        }
+                                        else
+                                        {
+                                            @Html.DisplayFor(p=> a)
+                                            ;
+
+                                        }
+                                    </th>
+
+                                    <td>@Html.DisplayFor(p=> o.competitor_rankings[a].competitor.name)</td>
+                                    <td><a asp-page="./dettaglicampione" asp-route-id="@o.competitor_rankings[a].competitor.id">Dettagli Fighter</a></td>
+                                </tr>
+                                a = a + 1;
+                            }
+
+                        }
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="list-heavyweight" role="tabpanel" aria-labelledby="list-heavyweight-list">
+                <div class="card">
+                    <table class="table">
+                        <thead>
+                        <th scope="col">Rank</th>
+                        <th>Nome</th>
+                        <th>-</th>
+                        </thead>
+                        @foreach (var o in Model.Rank.Where(p => p.name == "heavyweight").ToList())
+                        {
+
+                            int a = 0;
+                            while (a < 16)
+                            {
+                                <tr>
+                                    <th scope="row">
+                                        @if (a == 0)
+                                        {
+                                            <a>champion</a>
+                                        }
+                                        else
+                                        {
+                                            @Html.DisplayFor(p=> a)
+                                            ;
+
+                                        }
+                                    </th>
+
+                                    <td>@Html.DisplayFor(p=> o.competitor_rankings[a].competitor.name)</td>
+                                    <td><a asp-page="./dettaglicampione" asp-route-id="@o.competitor_rankings[a].competitor.id">Dettagli Fighter</a></td>
+                                </tr>
+                                a = a + 1;
+                            }
+
+                        }
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

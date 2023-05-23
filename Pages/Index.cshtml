@@ -1,0 +1,26 @@
+﻿@page
+@model IndexModel
+@using eventmanager.Models
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var e in Model.competitionList)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modeloptions => e.name)</td>       
+                <td>
+                    <a asp-page="./event_details" asp-route-id="@e.id">Dettagli Evento</a>
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
